@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="conversor.css">
+    <title>Conversor de Imagens</title>
+</head>
+<body>
+    <div class="topo">
+        <strong>Envio de arquivos</strong></div>
+		
+		<div class="logoUpload">
+			<img src="CONVERSOR.png" />
+		</div>
+    <h2 class="boxUpload">
+        <center style="width:80%;margin:0 10%;">
+        
+            <h2 class="titEnvio">Faça o upload do seu arquivo:</h2
+        
+                <form id="uploadForm">
+                    <div class="fundoCinza">
+                        <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif">
+                    </div>
+                    
+                    <div class="botoes">
+                        <button class="btnEnviar" type="button" onclick="enviar()">Converter Arquivos</button>
+                    </div>
+                </form>
+    <table class="informacoes" width="100%" border="0">
+        <center style="width:8%;margin:0 10%;">
+        <tr>
+          <th style="font-size: 13px;" scope="col"><div align="left">1. Clique em “Escolher arquivos” e selecione o arquivo que deseja converter.</div></th>
+            
+        </tr>
+        <tr>
+          <th style="font-size: 13px;" scope="col"><div align="left">2. Clique em "Converter Arquivos” e aguarde o fim do processo.</div></th>
+        </tr>
+    </center>
+    </table>
+    <a id="downloadLink" style="display: none;"></a>
+          
+    <script>
+        function enviar() {
+            const inputFile = document.querySelector('input[type="file"]');
+            const file = inputFile.files[0];
+
+            if (!file) {
+                alert('Selecione um arquivo antes de enviar.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('http://localhost:3000/processar', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao fazer a requisição.');
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    const downloadLink = document.getElementById('downloadLink');
+                    const url = window.URL.createObjectURL(blob);
+                    downloadLink.href = url;
+                    downloadLink.download = file.name.replace(/\.[^/.]+$/, "") + '.jpg';
+                    downloadLink.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+    </script>
+</body>
+</html>

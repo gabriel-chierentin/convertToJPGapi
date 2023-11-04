@@ -1,0 +1,100 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size:16px;
+	margin:0;
+	padding:0;
+}
+.topo{
+	width:100%;
+	background:#373536;
+	height:40px;
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+	line-height: 40px;
+    padding: 0 25px  ;
+    box-sizing: border-box;
+}
+.linkSite{
+	float: right;
+	text-decoration: none;
+	color: #fff;
+	text-transform: none !important;
+}
+.linkSite:hover{color: #ff9900;}
+.topo strong{
+	font-size: 14px !important;
+}
+.form{
+	color: #373536;
+}
+.fundoCinza{
+	background-color:#dedede;
+	padding: 7px 14px;
+	border-radius: 6px;
+	width: 88%;
+}
+.logoUpload{
+	width:160px;
+	margin:50px auto 0px;
+}
+.boxUpload {
+	width: 418px;
+	margin: 2px auto;
+	background: #ededed;
+	border-radius: 15px;
+	padding: 2% 0 2%;
+	font-size: 16px;
+}
+
+.informacoes{
+	width: 330px;
+	margin: auto;
+	font-size: 13px;
+	color: #616161;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+.btnEnviar{
+	background: #ff9900;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	border-radius: 6px;
+	padding: 7px 14px;
+	color: #FFFFFF;
+	border: 0;
+	font-size: 14px;
+	width: 100%;
+	cursor: pointer;
+}
+.btnEnviar:hover{
+	background: #373536;
+}
+
+th {
+	font-size: 15px;
+	font-weight: normal;
+	padding-bottom: 13px;
+}
+
+.botoes {
+	margin: 20px 0 20px 0;
+    float: right;
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.titEnvio{
+	color: #373536;
+	font-size: 16px;
+	font-weight: normal;
+	text-align: center;
+}
+strong{
+	font-size:17px;
+}
